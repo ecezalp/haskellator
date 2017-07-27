@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Header, Main} from 'react-router-dom';
+
 import EulerButton from './components/eulerButton';
 
 class App extends Component {
@@ -22,21 +24,25 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to Haskellator</h2>
-        </div>
-        <div className="App-body">
-          <div className="left">
-            {buttonIds.map(id => <EulerButton eulerId={id}
-                                              key={id}
-                                         selectedButtonId={this.state.selectedButtonId}
-                                         clickHandler={this.buttonClickHandler}/>)}
+        <Header>
+          <div className="App-header">
+            <img src={logo} className="App-logo" alt="logo"/>
+            <h2>Welcome to Haskellator</h2>
           </div>
-          <div className="right">
-            I am empty at the moment
+        </Header>
+        <Main>
+          <div className="App-body">
+            <div className="left">
+              {buttonIds.map(id => <EulerButton eulerId={id}
+                                                key={id}
+                                                selectedButtonId={this.state.selectedButtonId}
+                                                clickHandler={this.buttonClickHandler}/>)}
+            </div>
+            <div className="right">
+              I am empty at the moment
+            </div>
           </div>
-        </div>
+        </Main>
       </div>
     );
   }
